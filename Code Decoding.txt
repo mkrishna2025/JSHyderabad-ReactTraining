@@ -1,0 +1,17 @@
+Below is an example of sencha framework to create button
+Ext.create('Ext.Button', {
+    renderTo: document.body,
+    text    : 'Click me',
+    scale   : 'large'
+});
+
+var Ext = {
+	create: function(type, options){
+		if(type == 'Ext.Button'){
+			var element = document.createElement("input");
+			element.setAttribute('type', 'submit');
+			element.setAttribute('value', options.text);
+			options.renderTo.appendChild(element);
+		}
+	}
+}

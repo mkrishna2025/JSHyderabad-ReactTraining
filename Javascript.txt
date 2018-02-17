@@ -1,0 +1,92 @@
+// Approach 1
+var Calculator = function(){	
+	return {
+		addition: function(x, y) {
+			x = x || 0;
+			y = y || 0;
+			var z = x + y;
+			return z;
+		},
+		subtraction: function(x, y) {
+			x = x || 0;
+			y = y || 0;
+			var z = x - y;
+			return z;
+		}
+	}
+}
+
+// Approach 2
+var Calculator2 = function(){	
+	this.addition = function(x, y) {
+		x = x || 0;
+		y = y || 0;
+		var z = x + y;
+		return z;
+	};
+	this.subtraction = function(x, y) {
+		x = x || 0;
+		y = y || 0;
+		var z = x - y;
+		return z;
+	}
+}
+
+// Approach 3
+class Calculator3 
+{
+	addition(x, y){
+		x = x || 0;
+		y = y || 0;
+    	var z = x + y;
+		return z;
+	}
+	
+	subtraction(x, y){
+		x = x || 0;
+		y = y || 0;
+		var z = x - y;
+		return z;
+	}
+}
+
+Class
+Inheritance
+Method
+Constructor
+Field
+
+class Father {
+	constructor(fullName){
+		this.fullName = fullName;
+	}
+	
+	getAge(){
+    	return 10
+	}
+	getGender(){
+    	return 'Male';
+	}
+	getName(){
+		return this.fullName;
+	}
+}
+
+class Son extends Father
+{
+	constructor(fullName){
+		super(fullName);
+	}
+	getAge(){
+    	return 20;
+	}
+}
+
+class Person
+{
+	static getType(){
+		return "person";
+	}
+}
+
+const pi = 3.14;

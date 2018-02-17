@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<script type='text/javascript'>
+		
+			// Framework is an Object and items are like functions
+			// UIHelper is like a Object with key value pairs or Static Class having static APIs
+			var UIHelper = {
+				version: 1.0,
+				createLabel: function(){
+					
+				},
+				createTextBox: function(){
+					var textBox = document.createElement('input');
+					textBox.setAttribute('type', 'text');
+					return textBox;
+				}
+			}
+			
+			// Framework is a class. items are like functions
+			// UIHelper2 - class having api's to create components
+			var UIHelper2 = function() {
+				this.createTextBox = function(){
+					var textBox = document.createElement('input');
+					textBox.setAttribute('type', 'text');
+					return textBox;
+				}
+			}
+			
+			/*var UIHelper2 = function() {
+				var returnItem = {
+					createTextBox : function(){
+						var textBox = document.createElement('input');
+						textBox.setAttribute('type', 'text');
+						return textBox;
+					}
+				}
+				return returnItem;
+			}*/
+			
+			// Framework is an Object and items are like classes which support inheritance
+			// UIHelper3 - Namespace having classes which support inheritance
+			var UIHelper3 = {
+				Box: function(){
+					this.width = '100px';
+					this.element = document.createElement('input');
+				},
+				TextBox: function(){
+					UIHelper3.Box.call(this);
+					this.element.setAttribute('type', 'text');
+				}
+				,
+				Button: function(options){
+					UIHelper3.Box.call(this);
+					this.element.setAttribute('type', 'button');
+					this.element.setAttribute('value', options.text);
+				}
+			}
+			
+			function onLoad(){
+				var container = document.getElementById('root');
+				
+				container.innerHTML += 'User Name';
+				
+				container.append(UIHelper.createTextBox());
+				
+				container.innerHTML += 'User Password';
+				
+				container.append(new UIHelper2().createTextBox());
+				
+				container.innerHTML += 'Confirm Password';
+				debugger;
+				var textBox = new UIHelper3.TextBox();
+				
+				container.append(textBox.element);
+				
+				var button = new UIHelper3.Button({ text: 'Login'});
+				button.element.addEventListener('click', function (){
+					alert('Login Button Clicked');
+				});
+				container.append(button.element);
+				
+				document.getElementById('button2').addEventListener('click', function() { 
+					alert('Button Clicked');
+				});
+				
+				var localFunction = function(){
+					alert(' Alert from Local Function');
+				}
+				document.getElementById('button3').addEventListener('click', localFunction);
+				
+				document.getElementById('button4').addEventListener('customevent', function() { 
+					alert('Custom Event is Triggered');
+				});
+			}
+		</script>
+		<script>
+			function onClick(){
+				alert('Button Clicked');
+				document.getElementById('button4').dispatchEvent(new Event('customevent'));
+			}
+			function onMouseOver(){
+				alert('Button Mouse Over');
+			}
+		</script>
+	</head>
+	<body onload="onLoad()">
+		<div id="root">
+		</div>
+		<input type='button' onclick="onClick()" value='Click for Events' />
+		<input id='button2' type='button' value='Click for Dynamic Events' />
+		<input id='button3' type='button' value='Click for Dynamic Events 2' />
+		<input id='button4' type='button' value='Click for Custom Event' />
+	</body>
+</html>

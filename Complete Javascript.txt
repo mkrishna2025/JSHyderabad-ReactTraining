@@ -1,0 +1,604 @@
+--Start Day -1
+Syntax for creating a variable
+var variableName = defaultValue;
+
+var x = 10;
+var y; -> y is undefined
+
+Viewing values
+alert(x) -> in a popup
+console.log(x) -> prints value to console
+
+Syntax for creating a function
+// Approach 1
+function functionName(){
+}
+
+function welcome(){
+	console.log('Welcome to Demo');
+}
+
+// executing a function
+functionName();
+
+welcome() -> prints Welcome to Demo in console.
+
+function addition(x, y) {
+	var z = x + y;
+	console.log('result is ' + z);
+}
+
+function subtraction(x, y) {
+	console.log(' x value is ' + x);
+	console.log(' y value is ' + y);
+	var z = x - y;
+	console.log('result is ' + z);
+}
+subtraction(1, 2, 3) -> 
+1 will be copied to x, 
+2 will be copied to y 
+and 3 will be ignored.
+Additional Params are ignored.
+
+subtraction(1) ->
+x is 1
+y is undefined
+result is Nan -> Not a number
+Not passed in params considered undefined
+
+type -> Predefined function. It returns type of variable
+var x = 10;
+typeof(x) -> number
+var y = "Hello"
+typeof(y) -> string
+var z;
+typeof(z) -> undefined
+var a = true;
+typeof(a) -> boolean
+
+// Handling undefined
+function subtraction(x, y) {
+	x = x || 0;
+	y = y || 0;
+	console.log(' x value is ' + x);
+	console.log(' y value is ' + y);
+	var z = x - y;
+	console.log('result is ' + z);
+}
+
+// Approach 2 to create a function
+// syntax
+var functionName = function() {}
+
+var Multiplication = function(x, y){
+	x = x || 1;
+	y = y || 1;
+	var z = x * y;
+	console.log('result is ' + z);
+}
+
+// self executing function
+// syntax
+(function functionName(params){})();
+
+(function division(x, y){
+	x = x || 0;
+	y = y || 1;
+	var z = x / y;
+	console.log('result is ' + z);
+})();
+
+// passing values
+(function division(x, y){
+	x = x || 0;
+	y = y || 1;
+	var z = x / y;
+	console.log('result is ' + z);
+})(10, 2);
+
+var result = (function division(x, y){
+	x = x || 0;
+	y = y || 1;
+	var z = x / y;
+	console.log('result is ' + z);
+	return z;
+})(10, 2);
+
+-> result is 5
+
+function process(termiateInMiddle){
+	console.log('Started')
+	
+	if(termiateInMiddle) {
+		console.log('Terminated');
+		return;
+	}
+	
+	console.log('End');
+}
+
+Ternary Operator
+var variable = condition ? value1 : value2;
+
+if condition is true -> variable is assigned with value1 else it is assigned with value2
+
+var x = 5 > 3  ? 10 : 2; -> x is 10
+var x = 5 < 3  ? 10 : 2; -> x is 2;
+
+== compares only value
+===  compares both value and type 
+
+1 == 1 -> true
+1 == "1" -> true
+1 === 1 -> true
+1 === "1" -> false
+
+parseInt("10") -> 10
+parseInt("10.8") -> 10 -> it just removes decimals and not rounding off
+parseFloat("10.8") -> 10.8
+
+var x = 10;
+x.toString() -> converts number to string
+
+new Date() -> gets current date
+
+// Object 
+// key value pair
+// key can be string or numeric but dont give spaces
+// value	-
+				Numeric
+				Boolean
+				String
+				function
+				Other Object -> Nested Object
+				
+var person = {
+	firstName: 'Arjun',
+	lastName: 'Krishna'
+}
+
+// Accessing a value
+person.firstName
+person['lastName']
+
+// updating/adding a value
+person.firstName = 'Deepak'
+person['city'] = 'Hyderabad'
+
+delete person.city -> deletes city key.
+
+	https://github.com/mkrishna2025
+	
+Object.keys(person) -> will return array of keys present inside person.
+	
+Types
+	Number
+	String
+	Undefined
+	Boolean
+	Object
+	
+-- end Day - 1
+
+-- start Day - 2
+var calculator = {
+	addition: function(x, y){
+		return x + y;
+	},
+	subtraction: function(x, y){
+		return x - y;
+	}
+}
+calculator.multiplication = function(x, y) { return x * y; }
+calculator['division'] = function(x, y) { return x / y; }
+
+calculator.addition(1, 2) -> 3
+calculator['subtraction'](1,2) -> -1
+
+// Creating array
+var array = ['Krishna', 'Rakesh', 'Venkat'];
+array[0] -> "Krishna"
+array[1] -> "Rakesh"
+array[2] -> "Venkat"
+array[3] -> undefined -> it will not throw exception
+array.push('Neha') -> adding item to array
+array.pop() -> removing last item from array
+var x = array.pop(); -> last item is copied to variable and removed
+
+// Printing an array
+// Approach - 1 
+for(var index = 0; index < array.length ; index++){
+	console.log('index is ' + index);
+	var item = array[index];
+	console.log('item is ' + item);
+}
+
+// Approach - 2 - for in
+for(var index in array){
+	console.log('index is ' + index);
+	var item = array[index];
+	console.log('item is ' + item);
+}
+
+// Approach - 3 - for of
+for(var item of array){
+	console.log('item is ' + item);
+}
+
+person.address = ['Ameerpet', 'Kukatpally']; -> adds 2 items in key address
+person.address[1] -> Kukatpally
+
+person.address = [
+	{line1: 'Ameerpet', line2: '1/2/333'}, 
+	{line1: 'Kukatpally', line2: '1/23/333'} 
+ ]
+person.address[1].line1 -> Kukatpally
+person.address[1]['line1'] -> Kukatpally
+
+// Jagged Array
+var array2 = [ 1, "Hello", function(x, y) { return x + y; } ]
+var result = array2[2](1,2) -> result = 3
+
+https://www.w3schools.com/js/js_array_methods.asp
+
+JSON.stringify -> converts object to string
+
+var personString = JSON.stringify(person);
+
+JSON.parse -> converts string to object
+JSON.parse(personString)
+
+
+// Creating a class
+// Approach - 1
+// syntax
+var className = function(optional arguments for constructor){
+	// global variables/methods
+	// private variables/methods
+	
+	return {
+		// public variables/methods
+	}
+}
+
+var Person = function(){
+	return {
+		printWelcome: function(){
+			console.log('Welcome to Demo');
+		}
+	}
+}
+var p1 = new Person();
+p1.printWelcome() -> Welcome to Demo
+
+var p2 = new Person();
+p2.printWelcome() -> Welcome to Demo
+p2.printWelcome = function(){
+	console.log('Welcome to overrided function');
+}
+p2.printWelcome() -> Welcome to overrided function
+p1.printWelcome() -> Welcome to Demo -> change in p2 is not affecting p1 instance
+
+var Person = function(){
+	var returnItem = {
+		printWelcome: function(){
+			console.log('Welcome to Demo');
+		}
+	}
+	
+	return returnItem;
+}
+
+
+var Person2 = function(firstName, lastName) {
+	var returnItem = {
+		getFullName: function(){
+			return firstName + ' ' + lastName;
+		}
+	}
+	
+	return returnItem;
+}
+var p1 = new Person2('Venkat', 'Kumar');
+p1.getFullName() -> Venkat Kumar
+
+var p2 = new Person2();
+p2.getFullName() -> ' undefined undefined'
+
+var p3 = new Person2(1,2,3);
+p3.getFullName() -> '1 2'
+
+// Handling undefined
+var Person3 = function(firstName, lastName) {
+	firstName = firstName || '';
+	lastName = lastName || '';
+	var returnItem = {
+		getFullName: function(){
+			return firstName + ' ' + lastName;
+		}
+	}
+	
+	return returnItem;
+}
+var p1 = new Person3();
+p1.getFullName() -> ' '
+
+// Having common object as constructor
+var Person4 = function(options){
+	var returnItem = {
+		getFullName: function(){
+			return options.firstName + ' ' + options.lastName;
+		}
+	}
+	
+	return returnItem;
+}
+var p1 = new Person4({ firstName: 'Kiran', lastName: 'Kumar'});
+p1.getFullName() -> Kiran Kumar
+
+var p2 = new Person4({  lastName: 'Kumar', firstName: 'Prasad', age: 10});
+p2.getFullName() -> Prasad Kumar -> 
+	No Need to follow any order
+	Passing values are not mandatory
+	Additional Keys passed in are ignored
+
+Handling undefined
+var Person5 = function(options) {
+	options = options || {};
+	options.firstName = options.firstName || '';
+	options.lastName = options.lastName || '';
+	var returnItem = {
+		getFullName: function(){
+			return options.firstName + ' ' + options.lastName;
+		}
+	}
+	
+	return returnItem;
+}
+var p2 = new Person5({ lastName: 'Reddy'});
+p2.getFullName() -> Reddy -> advantage is not to follow any order of params 
+and no need to pass all keys
+
+-- End - Day 2
+
+-- Start - Day 3
+var Calculator = function(){
+
+	var printToConsole = function(result){
+		console.log('Result is ' + result);
+	}
+	
+	var returnItem = {
+		addition: function(x, y) {
+			var z = x + y;
+			printToConsole(z);
+			return z;
+		},
+		subtraction: function(x, y) {
+			var z = x - y;
+			printToConsole(z);
+			return z;
+		}
+	}
+	
+	return returnItem;
+}
+
+// we can use normal named function also like below.
+var Calculator = function(){
+
+	function printToConsole(result){
+		console.log('Result is ' + result);
+	}
+	
+	var returnItem = {
+		addition: function(x, y) {
+			var z = x + y;
+			printToConsole(z);
+			return z;
+		},
+		subtraction: function(x, y) {
+			var z = x - y;
+			printToConsole(z);
+			return z;
+		}
+	}
+	
+	return returnItem;
+}
+
+// private/public/global example
+var Calculator = function(){
+
+	// private method
+	var printToConsole = function(result){
+		console.log('Result is ' + result);
+	}
+	
+	// global variable
+	pi = 3.14;
+	testFramework = function() {
+		console.log('Framework Tested Successfully');
+	}
+	
+	var returnItem = {
+		version: 1.0, // public variable
+		addition: function(x, y) {
+			var z = x + y;
+			printToConsole(z);
+			return z;
+		},
+		subtraction: function(x, y) {
+			var z = x - y;
+			printToConsole(z);
+			return z;
+		}
+	}
+	
+	return returnItem;
+}
+
+// Approach 2 for creating class
+// syntax
+var className = function(optional arguments for constructor){
+	// global variables/methods
+	// private variables/methods
+	
+	this.
+}
+
+var Calculator = function(){
+
+	var printToConsole = function(result){
+		console.log('Result is ' + result);
+	}
+	
+	this.version = 2.0;
+	
+	this.addition = function(x, y) {
+		var z = x + y;
+		printToConsole(z);
+		return z;
+	};
+	this.subtraction = function(x, y) {
+		var z = x - y;
+		printToConsole(z);
+		return z;
+	}
+}
+
+function printWelcome(user){
+	user = user || 'Admin'
+	console.log('Welcome to ' + user);
+}
+// executing function
+// approach 1
+printWelcome(); -> Welcome to Admin
+printWelcome('Rakesh'); -> Welcome to Rakesh
+
+// approach 2
+printWelcome.call() -> Welcome to Admin
+printWelcome.call(this, 'Keerthi') -> Welcome to Keerthi
+
+var ScientificCalculator = function(){
+	Calculator.call(this);
+	this.areaOfTriangle = function() {
+	}
+	// overriding function
+	this.addition = function(x, y, z) {
+		return x + y + z;
+	}
+}
+
+Assume Person is class and age is field
+var obj = new Person();
+
+if age is private -> obj.age -> throws exception or will not return value
+if age is public -> obj.age
+if age is static -> Person.age
+if age is global -> age
+
+
+// Advantages of approach 2
+Supporting Inheritance
+
+// End - Day 3
+
+// Start - Day 4
+
+prototype - It is used to inject methods to existing classes
+Calculator.prototype.multiplication = function(x, y) {
+	return x * y;
+}
+
+// below method injects contains method to Array class
+Array.prototype.contains = function (element) {
+  for (var i = 0; i < this.length; i++) {
+      if (this[i] == element) {
+          return true;
+      }
+  }
+  
+  return false;
+};
+
+callBack -> While calling function, we can pass multiple functions as parameters, 
+that will be triggered from called function.
+
+refer debug3.html
+
+var success = function() {
+	console.log('Executed Successfully');
+}
+
+var failure = function() {
+	console.log('Execution Failed');
+}
+
+SendMail('test@gmail.com', success, failure);
+When mail sent successfully, Executed Successfully will be printed else Execution Failed
+
+// importing babel in code enables to support latest versions of javascript.
+Browser understands only older versions. 
+This babel will convert our code of latest version to older version. 
+
+
+http://babeljs.io
+http://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=MYGwhgzhAEBiYBcAWBTATtA3gKGtA5iggHJgC2KAFAJQ54CQaRArmgHbQDkAgmgFbM2nANy5oAXzGEE3ACaymUGnWiMW7LtwroADkQA00ABIBPWegBGYWSLGTJ2UJBgBlAPYcUADwQo2smHhkdCxsemlSCmUxBiYEVg5OADU_AGtEW3pJPGgIBEQAS2ACIgBxP3M0aJycuISuAFkwEBROMPsgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=true&fileSize=false&lineWrap=false&presets=latest%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=
+
+class Father {
+	getAge(){
+    	return 10
+	}
+	getGender(){
+    	return 'Male';
+	}
+}
+
+class Son extends Father
+{
+	getAge(){
+    	return 20;
+	}
+	getName(){
+    	return 'Krish';
+	}
+}
+
+// decoding the framework
+Below is an example of sencha framework to create button
+Ext.create('Ext.Button', {
+    renderTo: document.body,
+    text    : 'Click me',
+    scale   : 'large'
+});
+
+this will be decoded as 
+var Ext = {
+	create: function(type, options) {
+		if(type == 'Ext.Button') {
+			var container = options.renderTo;
+			container.append(Framework.createButton({text: options.text}));
+		}
+	}	
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
