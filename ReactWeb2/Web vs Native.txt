@@ -1,0 +1,62 @@
+Javascript
+Node
+React With Web
+
+React Native
+
+	class StudentView extends React.Component {
+		render(){
+			return 	<div>
+						<h1>Welcome to Demo </h1>
+						<h2> in Hyderabad </h2>
+					</div>;
+		}
+	}
+
+	class Student extends React.Component {
+		render(){
+			return 	<StudentView />;
+		}
+	}
+	
+	h1 -> react.createElement('h1',...) -> html element at the end
+	
+	class StudentView extends React.Component {
+		render(){
+			return 	<View>
+						<Text style={{font-size: 20}}>Welcome to Demo </Text>
+						<Text style={{font-size: 18}}> in Hyderabad </Text>
+					</View>;
+		}
+	}
+	
+	class Student extends React.Component {
+		render(){
+			return 	<StudentView />;
+		}
+	}
+	
+this.props -> variables that are created when instance is created. It cant be updated. There is no tight binding such that even the variable is not passing, it will not throw any exception.
+
+
+var addition = function(x, y){
+	return x + y;
+}
+
+var addition = (x, y) => { return x + y; }
+
+var addition = (x, y) => x + y;
+
+addition(1, 2);
+addition.call(this, 1, 2);
+
+
+
+this.props.x -> x is param/variable which is received while creating instance and cant be updated
+this.state.x -> class level local variable and can be updated.
+
+Array.prototype.map = function(callBack){
+	for(var item of this.items){
+		callBack(item);
+	}
+}
