@@ -1,0 +1,185 @@
+x -> local variable -> this.state.x
+x -> passed in variable -> this.props.x
+
+class Test extends React.component{
+	render(){
+		return (
+			<div {...this.props}>{this.props.children}</div>
+		);
+	}
+}
+<Test style={{font-size: 20 }}>
+	Welcome to Demo
+	<li>React</li>
+	<li>React Native</li>
+</Test>
+
+class MasterScreen extends React.component{
+	render(){
+		return (
+			<div>
+				</Header>
+				{this.props.children}
+				</Footer>
+			</div>
+		);
+	}
+}
+<MasterScreen>
+	Welcome to Demo
+	<li>React</li>
+	<li>React Native</li>
+</MasterScreen>
+
+this.props.children
+
+class Test2 extends React.Component{
+	render() { return <div>{this.props.userName}</div>}
+}
+
+class Test3 extends React.Component{
+	render() { 
+		return (
+			<div>{this.props.userName}</div>
+		);
+	}
+}
+
+<Test3 userName="Krishna">
+
+class TextBox extends React.Component {
+	render(){
+		return (
+			<input type="text" style={{font-size: 20 }} />
+		);
+	}
+}
+<TextBox />
+class Button extends React.Component {
+	render(){
+		return (
+			<input type="button" style={{font-size: 20 }} />
+		);
+	}
+}
+<Button />
+
+class UIElement extends React.Component{
+	render(){
+		return (
+			<input type={this.props.type} style={this.props.style} />
+		);
+	}
+}
+<UIElement type="text" style={{font-size: 20 }}/>
+<UIElement type="button" style={{font-size: 20 }}/>
+class UIElement extends React.Component{
+	render(){
+		return (
+			<input {...this.props} />
+		);
+	}
+}
+
+
+
+var element = new UIElement();
+element.type = "text";
+
+Routing
+npm install react-navigation 
+npm install react-navigation --save
+
+
+npm install PreferencePackage --save
+react-native link
+
+import { StackNavigator } from 'react-navigation';
+
+var routes = {
+  StartUp:{ screen: StartUpScreen, navigationOptions: { title: 'Startup' } }
+}
+var routes = {
+  Screen1:{ screen: Component1, navigationOptions: {} },
+  Screen2:{ screen: Component2, navigationOptions: {} }
+}
+var stackOptions = {
+	initialRouteName: 'Screen2'
+}
+const Navigations = StackNavigator(routes, stackOptions);
+export default class Demo extends React.Component {
+    render(){
+        return (
+            <Navigator />
+        )
+    }
+}
+
+
+Backed Call
+fetch(options).done(successCallBack).catch(failedCallBack);
+
+line1
+fetch({url: 'http://www.google.com'}).done((response) => console.log(response))
+				.catch((exception) => console.log(exception))
+line3
+line4
+line5
+
+var successCallBack = (respone) => { return response1;}
+var successCallBack2 = (response1) => { return response2;}
+var successCallBack3 = (response2) => { return response3;}
+var successCallBack4 = (response3) => { return response4;}
+var successCallBack5 = (response4) => { Alert.alert(response4)}
+fetch(options).done(successCallBack)
+			.done(successCallBack2)
+			.done(successCallBack3)
+			.done(successCallBack4)
+			.done(successCallBack5)
+			.catch(failedCallBack);
+			
+const x1 = this.props.x1;
+const x2 = this.props.x2;
+const x3 = this.props.x3;
+const x4 = this.props.x4;
+
+const { x1, x2, x3, x4 } = this.props;
+const { x1,
+		x2,
+		x3,
+		x4 } = this.props;
+
+ES5
+var Calculator = function(){
+	this.addition = function(x,y) return x + y;
+}
+module.exports = Calculator;
+var Calculator = require('./calculator.js')
+
+ES6
+class Calculator{
+	addition(x, y){ return x+y;}
+}
+export default Calculator
+import Calculator from './calculator.js';
+
+react-native
+TypeScript
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
