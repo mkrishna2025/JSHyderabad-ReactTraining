@@ -1,0 +1,100 @@
+import React, {Component} from 'react';
+import {View, Text, Image, StyleSheet} from 'react-native';
+import {
+  Container,
+  Header,
+  Content,
+  List,
+  ListItem,
+  Left,
+  Body,
+  Right,
+  Switch,
+} from 'native-base';
+import { Icon } from 'native-base';
+import Preference from 'react-native-preference';
+import {Platform} from 'react-native'
+
+const fontAwesome = {
+    iconFamily: 'FontAwesome',
+    iconFontSize: (Platform.OS === 'ios' ) ? 30 : 28,
+    iconMargin: 7,
+    iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
+}
+
+export default class Drawer extends Component {
+  constructor(props){
+    super(props);
+    const UserName = Preference.get('UserName');
+    this.state = {
+      username: UserName
+    }
+  }
+  render() {
+    return <Content style={{backgroundColor: '#fff'}}>
+        <View style={{flex: 1, backgroundColor: '#7094db', height: 200, justifyContent: 'center', alignItems: 'center'}}>
+          <Image source={require('./logo.png')} />
+          <Text>{this.state.username}</Text>
+        </View>
+
+        <List>
+          <ListItem icon>
+            <Left>
+              <Icon theme={fontAwesome} name="user" style={{fontSize: 20}} />
+            </Left>
+            <Body>
+              <Text style={{fontSize: 25, color: 'green'}}>Profile</Text>
+            </Body>
+            <Right>
+              <Icon theme={fontAwesome} name="arrow-right" style={{fontSize: 20}} />
+            </Right>
+          </ListItem>
+
+          <ListItem icon>
+            <Left>
+              <Icon theme={fontAwesome} name="location-arrow" style={{fontSize: 20}} />
+            </Left>
+            <Body>
+              <Text style={{fontSize: 25, color: 'green'}}>Students</Text>
+            </Body>
+
+            <Right>
+              <Icon theme={fontAwesome} name="toggle-on" style={{fontSize: 20}} />
+            </Right>
+          </ListItem>
+
+          <ListItem icon>
+            <Left>
+              <Icon theme={fontAwesome} name="share" style={{fontSize: 20}} />
+            </Left>
+            <Body>
+              <Text style={{fontSize: 25, color: 'green'}}>Courses</Text>
+            </Body>
+            <Right>
+              <Icon theme={fontAwesome} name="arrow-right" style={{fontSize: 20}} />
+            </Right>
+          </ListItem>
+
+          <ListItem icon>
+            <Left>
+              <Icon name="sign-out" style={{fontSize: 20}} />
+            </Left>
+            <Body>
+              <Text style={{fontSize: 25, color: 'green'}} onPress={() => {
+                    Preference.set('IsLoggedIn', '0');
+                    this.props.navigator.navigate('StartUp');
+                  }
+                }>
+                Logout
+              </Text>
+            </Body>
+          </ListItem>
+        </List>
+      </Content>;
+  }
+}
+const styles=StyleSheet.create({
+  listitem:{
+    height:30
+  }
+});
