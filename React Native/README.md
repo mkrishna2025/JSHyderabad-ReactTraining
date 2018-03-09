@@ -14,8 +14,8 @@
 
 - [Font Awesome Icons](https://fontawesome.com/icons?d=gallery&q=bars)
 
-- [Awesome React Components] (https://github.com/brillout/awesome-react-components)
+- [Awesome React Components](https://github.com/brillout/awesome-react-components)
 
-- [Community React Components] (https://reactjs.org/community/ui-components.html)
+- [Community React Components](https://reactjs.org/community/ui-components.html)
 
 
