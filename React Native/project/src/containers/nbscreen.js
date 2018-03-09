@@ -107,7 +107,7 @@ export default class NBScreen extends Component {
             </TouchableOpacity>
             </View>
             <View style={styles.component1}>
-            <TouchableOpacity onPress={() => console.log('Need Implementation')}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Blog')}>
                 <Image source={require("../images/query.png")} />
                 <Text
                 style={{
@@ -117,7 +117,7 @@ export default class NBScreen extends Component {
                 }}
                 >
                 {" "}
-                Queries
+                Blog
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=> console.log('Need Implementation')}>

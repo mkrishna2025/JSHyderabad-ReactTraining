@@ -43,7 +43,10 @@ export default class Drawer extends Component {
               <Icon type="FontAwesome" name="user" style={{fontSize: 20}} />
             </Left>
             <Body>
-              <Text style={{fontSize: 25, color: 'green'}}>Profile</Text>
+              <Text style={{fontSize: 25, color: 'green'}} onPress={() => {
+                    this.props.navigator.navigate('MyProfile');
+                  }
+                }>Profile</Text>
             </Body>
             <Right>
               <Icon type="FontAwesome" name="arrow-right" style={{fontSize: 20}} />
@@ -56,7 +59,6 @@ export default class Drawer extends Component {
             </Left>
             <Body>
               <Text style={{fontSize: 25, color: 'green'}} onPress={() => {
-                    Preference.set('IsLoggedIn', '0');
                     this.props.navigator.navigate('Users');
                   }
                 }>Users</Text>
