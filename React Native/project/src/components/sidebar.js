@@ -40,7 +40,7 @@ export default class Drawer extends Component {
         <List>
           <ListItem icon>
             <Left>
-              <Icon theme={fontAwesome} name="user" style={{fontSize: 20}} />
+              <Icon type="FontAwesome" name="user" style={{fontSize: 20}} />
             </Left>
             <Body>
               <Text style={{fontSize: 25, color: 'green'}}>Profile</Text>
@@ -52,32 +52,32 @@ export default class Drawer extends Component {
 
           <ListItem icon>
             <Left>
-              <Icon theme={fontAwesome} name="location-arrow" style={{fontSize: 20}} />
+              <Icon type="FontAwesome"  name="location-arrow" style={{fontSize: 20}} />
             </Left>
             <Body>
               <Text style={{fontSize: 25, color: 'green'}}>Students</Text>
             </Body>
 
             <Right>
-              <Icon theme={fontAwesome} name="toggle-on" style={{fontSize: 20}} />
+              <Icon type="FontAwesome"  name="toggle-on" style={{fontSize: 20}} />
             </Right>
           </ListItem>
 
           <ListItem icon>
             <Left>
-              <Icon theme={fontAwesome} name="share" style={{fontSize: 20}} />
+              <Icon type="FontAwesome"  name="share" style={{fontSize: 20}} />
             </Left>
             <Body>
               <Text style={{fontSize: 25, color: 'green'}}>Courses</Text>
             </Body>
             <Right>
-              <Icon theme={fontAwesome} name="arrow-right" style={{fontSize: 20}} />
+              <Icon type="FontAwesome"  name="arrow-right" style={{fontSize: 20}} />
             </Right>
           </ListItem>
 
           <ListItem icon>
             <Left>
-              <Icon name="sign-out" style={{fontSize: 20}} />
+              <Icon type="FontAwesome" name="sign-out" style={{fontSize: 20}} />
             </Left>
             <Body>
               <Text style={{fontSize: 25, color: 'green'}} onPress={() => {
