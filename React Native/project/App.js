@@ -12,8 +12,10 @@ import RegisterScreen from './src/containers/register.js';
 import HomeScreen from './src/containers/home.js';
 import NBScreen from './src/containers/nbscreen.js';
 import Users from './src/containers/users';
+import Blog from './src/containers/blog';
 import Courses from './src/containers/courses';
 import ChatScreen from './src/containers/chat';
+import MyProfile from './src/containers/myprofile';
 import ProfileScreen from './src/containers/profile';
 import { StackNavigator } from 'react-navigation';
 
@@ -70,7 +72,9 @@ const Navigations = StackNavigator({
     screen: Courses, navigationOptions: { title: 'Courses' }
   },
   Chat: { screen: ChatScreen },
-  ProfileScreen: { screen: ProfileScreen }
+  ProfileScreen: { screen: ProfileScreen },
+  Blog: { screen: Blog},
+  MyProfile: { screen: MyProfile}
 }, {
     initialRouteName: 'StartUp'
   });

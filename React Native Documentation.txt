@@ -260,6 +260,17 @@ send uniqueid to the backend to save in any table(database - deviceType, uniquei
 Raising Notifications: 
 
 
+Opening Emulator
+open cmd and open sdk tools path ... C:\Users\kamal\AppData\Local\Android\sdk\tools
+emulator -list-avds
+emulator @Nexus_6_API_26
+
+bundle command is added below (open cmd at project level, run bundle command and make sure you are opened other cmd with npm start)
+react-native bundle --platform android --dev false --entry-file index.js \  --bundle-output android/app/src/main/assets/index.android.bundle \  --assets-dest android/app/src/main/res/
+
+APK folder 
+..\project\android\app\build\outputs
+
 
 
 
