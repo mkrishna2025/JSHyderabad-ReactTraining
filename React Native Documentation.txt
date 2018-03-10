@@ -1,5 +1,23 @@
-x -> local variable -> this.state.x
-x -> passed in variable -> this.props.x
+x -> local state variable -> {this.state.x}
+x -> passed in variable -> {this.props.x}
+x -> pure block level variable -> {x}
+
+class TestComponent 
+	render() {
+		const {a, b, c} = this.props;
+		
+	}
+	
+class ExtendedComponent -> a, b, c to TestComponent 
+	-> <TestComponent a="1" b="2" c="3" />
+	-> <TestComponent a={this.props.a} b={this.props.b} c={this.props.c} />
+	-> <TestComponent {...this.props}/>
+	-> var { d: valueD, ...rest} = this.props;
+	    <TestComponent {...rest}/>
+	
+class ExtendedComponent2 -> a, b, c, d
+	<ExtendedComponent a="1" b="2" c="3" d="4" />
+	
 
 class Test extends React.component{
 	render(){
@@ -25,6 +43,7 @@ class MasterScreen extends React.component{
 		);
 	}
 }
+
 <MasterScreen>
 	Welcome to Demo
 	<li>React</li>
@@ -44,8 +63,13 @@ class Test3 extends React.Component{
 		);
 	}
 }
+Test3.defaultProps = { 
+	userName: 'GuestUser', 
+	userId: -1
+};
 
-<Test3 userName="Krishna">
+<Test3 userName="Krishna"/> -> this.props.userName will be Krishna 
+<Test3 /> -> this.props.userName will be GuestUser
 
 class TextBox extends React.Component {
 	render(){
@@ -115,6 +139,8 @@ export default class Demo extends React.Component {
     }
 }
 
+import { TabNavigator }  from 'react-navigation';
+
 
 Backed Call
 fetch(options).done(successCallBack).catch(failedCallBack);
@@ -164,7 +190,78 @@ export default Calculator
 import Calculator from './calculator.js';
 
 react-native
-TypeScript
+	Babel
+	TypeScript
+
+
+StateFul Component
+class TestComponent extends React.Component {
+	render(){
+		var { userName, city} = this.props;
+		return (
+			<div>Welcome to {city} {userName}</div>
+		);
+	}
+}
+
+StateLess Component -> dont extend React.Component and dont use keywords like this, props
+const TestComponent({ userName, city }) => (
+	<div>Welcome to {city} {userName}</div>
+);
+
+I can point to file
+I can point to a folder -> index.js will be picked up.
+
+
+LifeCycle
+	constructor -> default values
+	componentWillMount -> subcriptions. ex: device registering to Firebase
+	render
+	componentDidMount -> 
+	componentWillUnMount -> deregistering the subcriptions, clearing the resources or memory
+	
+class RestaurantScreen extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			inProgress: false;
+			restaurants: []
+		}
+	}
+	componentWillMount(){
+		// register this device to Firebase
+	}
+	async componentDidMount() {
+		this.setState({inProgress: true});
+		// Asynchronous
+		fetch(...).done((response) => respone.json())
+				.done((responseJson) => {
+					this.setState({ restaurants: responseJson.data, inProgress: false });
+				}).catch((exception) => {});
+				
+		// Synchronous
+		var restaurants = await fetch(...);
+	}
+	render(){
+		if(this.props.inProgress) {
+			return (<div> Please wait.. loading...</div>);
+		} else {
+			return (<div>{this.state.restaurants.map({item => <p>{item.name}, {item.address}</p>})}</div>);
+		}
+		
+	}
+}
+
+
+// registering device
+generate uniqueid from deviceId, projectId.
+send uniqueid to the backend to save in any table(database - deviceType, uniqueid)
+
+Raising Notifications: 
+
+
+
+
 
 
 
